@@ -23,7 +23,8 @@ export default function Register() {
       for (let key in formData) {
         data.append(key, formData[key as keyof typeof formData] as any);
       }
-      const res = await fetch("http://localhost:5000/api/register", { method: "POST", body: data });
+      const res = await fetch("https://my-backend-vew1.onrender.com/api/register", { method: "POST", body: data });
+
       if (!res.ok) throw new Error("Failed to register");
       const result = await res.json();
       localStorage.setItem("user", JSON.stringify(result.user));

@@ -59,7 +59,7 @@ const UploadItem: React.FC = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/donations", {
+      const res = await fetch("https://my-backend-vew1.onrender.com/api/donations", {
         method: "POST",
         body: formData,
       });

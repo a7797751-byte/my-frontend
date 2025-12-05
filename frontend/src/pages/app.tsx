@@ -1,7 +1,12 @@
-import '../styles/globals.css'
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+const protectedRoutes = ['/profile', '/upload'];
 
-export default MyApp
+useEffect(() => {
+  const storedUser = JSON.parse(localStorage.getItem('user') || 'null');
+  setUser(storedUser);
+  if (!storedUser && protectedRoutes.includes(router.pathname)) {
+    router.push('/login');
+  }
+}, [router.pathname]);
